@@ -83,7 +83,7 @@ Then, open Nexus in a web browser: `https://nexus.example.com`. Click "Sign in" 
   * Possibly: If someone gains access to the Docker socket, then this person is for all practical purposes a `root` user of the entire Synology. The image `Portainer` needs access to the Docker socket to function. In addition, `Portainer` runs as `root`. All of this combined means that if someone can hack `Portainer`, then this person has unlimited access to the Synology DiskStation. This is why this project is about a *private* development server, and not a public one. Operate the Synology behind a firewall only snd do not enable any port forwarding to the Synology!
 * How can I reset my servers?
   * For a full reset, you have to delete all volumes. This can be done easily by shutting down like this: `sudo docker-compose down -v`.
-  * For a partial reset, you can manually delete the matching volume. Use `sudo docker volume ls` to list the existing volumes. Then use `sudo docker volume rm [volumename]` to delete. For example, `sudo docker volume rm synologydevserver_jenkins_home` resets Jenkins.
+  * For a partial reset, you can manually delete the matching volume. Use `sudo docker volume ls` to list the existing volumes. Then use `sudo docker volume rm [volumename]` to delete. For example, `sudo docker volume rm synologystorageserver_nexus_home` resets Nexus.
 * Do I need Portainer?
   * No, you can instead use the GUI of the Synology Docker package. Just remove the "Portainer" part of the `docker-compose.yaml` file, and also remove the `depends-on` section. Strictly speaking, the `depends-on` is incorrect anyway. I just wanted Portainer to be up and running before any other packages start up.
 * How do I backup the data?
