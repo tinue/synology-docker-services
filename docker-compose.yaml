@@ -39,7 +39,21 @@ services:
     environment:
       - INSTALL4J_ADD_VM_PARAMS=-Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g
 
+  oracle:
+    image: oracle/database:18.4.0-xe
+    container_name: oracle-xe
+    restart: always
+    volumes:
+	 - oracle_data:/opt/oracle/oradata
+	ports:
+	 - 1521:1521
+	 - 5500:5500
+	environment:
+	 - ORACLE_PWD=oracle
+	 - ORACLE_CHARACTERSET=AL32UTF8
+
 volumes:
   jenkins_home:
   nexus_home:
   portainer_data:
+  oracle_data:
