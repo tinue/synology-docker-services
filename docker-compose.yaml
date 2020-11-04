@@ -44,13 +44,13 @@ services:
     container_name: oracle-xe
     restart: always
     volumes:
-	 - oracle_data:/opt/oracle/oradata
-	ports:
-	 - 1521:1521
-	 - 5500:5500
-	environment:
-	 - ORACLE_PWD=oracle
-	 - ORACLE_CHARACTERSET=AL32UTF8
+      - oracle_data:/opt/oracle/oradata
+    ports:
+      - 1521:1521
+      - 5500:5500
+    environment:
+      - ORACLE_PWD=oracle
+      - ORACLE_CHARACTERSET=AL32UTF8
 
 volumes:
   jenkins_home:
